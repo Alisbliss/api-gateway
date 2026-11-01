@@ -1,3 +1,28 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: auth-service
+              uri: ${AUTH_SERVICE_URL:http://localhost:8082}
+              predicates:
+                - Path=/api/auth/**
+            - id: user-service
+              uri: ${USER_SERVICE_URL:http://localhost:8081}
+              predicates:
+                - Path=/api/users/**
+            - id: order-service
+              uri: ${ORDER_SERVICE_URL:http://localhost:8083}
+              predicates:
+                - Path=/api/orders/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI:http://localhost:8082/api/auth/.well-known/jwks.json}
