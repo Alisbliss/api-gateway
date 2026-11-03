@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Secrets / local config ###
+application-local.yml
+application-local.yaml
+.env
+*.env
+!.env.example
+
+### Logs ###
+*.log
+logs/
+run.log
