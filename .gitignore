@@ -31,3 +31,16 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Secrets / local config ###
+application-local.yml
+.env
+*.env
+!.env.example
+
+### Logs ###
+*.log
+logs/
+run.log
+
+docker-compose.yml
