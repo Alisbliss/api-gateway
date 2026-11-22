@@ -15,6 +15,7 @@ API Gateway for the microservices project. Routes requests to `auth-service`, `u
 - Route `/api/auth/**` to `auth-service`
 - Route `/api/users/**, /api/cards/**` to `user-service`
 - Route `/api/orders/**` to `order-service`
+- Route `/api/payments/**` to `payment-service`
 - JWT validation via `jwk-set-uri` (RS256, JWKS from `auth-service`)
 - Public endpoints: `/api/auth/login`, `/api/auth/register`, `/api/auth/refresh`
 - Stateless (no session, no CSRF)
@@ -30,5 +31,6 @@ mkdir microservices && cd microservices
 git clone https://github.com/Alisbliss/auth-service.git     auth-service
 git clone https://github.com/Alisbliss/user-service.git     user-service
 git clone https://github.com/Alisbliss/order-service.git    order-service
+git clone https://github.com/Alisbliss/payment-service.git  payment-service
 git clone https://github.com/Alisbliss/api-gateway.git      api-gateway
 git clone https://github.com/Alisbliss/infra.git            infra

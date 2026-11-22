@@ -49,4 +49,18 @@ class SecurityTest {
 				.exchange()
 				.expectStatus().isUnauthorized();
 	}
+
+	@Test
+	void orders_requiresAuth() {
+		webTestClient.get().uri("/api/orders/1")
+				.exchange()
+				.expectStatus().isUnauthorized();
+	}
+
+	@Test
+	void payments_requiresAuth() {
+		webTestClient.get().uri("/api/payments/1")
+				.exchange()
+				.expectStatus().isUnauthorized();
+	}
 }
