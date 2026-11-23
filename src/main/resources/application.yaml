@@ -25,3 +25,13 @@ spring:
               uri: ${PAYMENT_SERVICE_URL:http://localhost:8084}
               predicates:
                 - Path=/api/payments/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true

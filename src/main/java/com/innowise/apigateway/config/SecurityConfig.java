@@ -18,7 +18,7 @@ public class SecurityConfig {
                 .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
                 .authorizeExchange(ex -> ex
                         .pathMatchers("/api/auth/login", "/api/auth/register", "/api/auth/refresh").permitAll()
-                        .pathMatchers("/actuator/health").permitAll()
+                        .pathMatchers("/actuator/health/**").permitAll()
                         .anyExchange().authenticated()
                 )
                 .oauth2ResourceServer(o -> o.jwt(j -> {}))
